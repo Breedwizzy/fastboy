@@ -19,7 +19,7 @@ def get_posts(db: Session = Depends(get_db), current_user: int = Depends(
    # posts = cursor.fetchall()
     posts = db.query(models.Post).all()
 
-    #(vote join error) results = db.query(models.Post, func.count(models.Vote.post_id.label("votes"))).join(models.Vote, models.Vote.post_id == models.Post.id, isouter=True).group_by(models.Post.id).all()
+    #results = db.query(models.Post, func.count(models.Vote.post_id.label("votes"))).join(models.Vote, models.Vote.post_id == models.Post.id, isouter=True).group_by(models.Post.id).all()
    
     return posts
 

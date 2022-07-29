@@ -34,6 +34,8 @@ class Post(PostBase):
          orm_mode = True
 
 
+
+
 # (vote join schema)class PostOut(PostBase):
 #     Post: Post
 #     votes: int
