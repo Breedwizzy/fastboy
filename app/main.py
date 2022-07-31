@@ -1,6 +1,4 @@
 from enum import auto
-from operator import index
-from turtle import title
 from typing import Optional, List
 from fastapi import  FastAPI, Response, status, HTTPException, Depends
 from fastapi.params import Body
