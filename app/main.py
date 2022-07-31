@@ -1,18 +1,8 @@
-from enum import auto
-from typing import Optional, List
-from fastapi import  FastAPI, Response, status, HTTPException, Depends
-from fastapi.params import Body
-from pydantic import BaseModel
-from random import randrange
+from fastapi import  FastAPI
 import psycopg2
-from psycopg2.extras import RealDictCursor
 import time
-from sqlalchemy.orm import Session
 from requests import delete
-from . import models, schemas, utils
-from .database import engine, get_db
 from .routers import post, user, auth, vote
-from .config import settings
 from fastapi.middleware.cors import CORSMiddleware
 
 
