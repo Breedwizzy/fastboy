@@ -1,8 +1,8 @@
 """auto-post
 
-Revision ID: b7ab1d6e596b
+Revision ID: 2ca04be8bc3f
 Revises: 
-Create Date: 2022-07-28 23:13:42.173546
+Create Date: 2022-07-30 21:46:55.811324
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'b7ab1d6e596b'
+revision = '2ca04be8bc3f'
 down_revision = None
 branch_labels = None
 depends_on = None
