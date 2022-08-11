@@ -19,6 +19,10 @@ def create_users(user: schemas.UserCreate, db: Session = Depends(get_db)):
     
     hashed_password = utils.hash(user.password)
     user.password = hashed_password
+    
+    if user.email in user.email:
+        raise HTTPException(status_code=status.HTTP_208_ALREADY_REPORTED, detail=f"Email Already Exist")
+
     new_user = models.User(**user.dict())
     db.add(new_user)
     db.commit()
