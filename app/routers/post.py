@@ -1,9 +1,11 @@
+from time import process_time_ns
 from requests import post
 from .. import models, schemas, oauth2
 from fastapi import  Response, status, HTTPException, Depends, APIRouter
 from sqlalchemy.orm import Session
 from ..database import get_db
 from typing import List
+from . import vote
 
 
 router = APIRouter(
@@ -16,7 +18,19 @@ def get_posts(db: Session = Depends(get_db), current_user: int = Depends(
     oauth2.get_current_user) ):
    # cursor.execute("""SELECT * FROM posts""")
    # posts = cursor.fetchall()
-    posts = db.query(models.Post).all()
+
+    posts = db.query(models.Post).all() #.join(models.Vote.user_id))
+
+    print(posts)
+    #while posts == True:
+    #    models.Post, (models.Vote.post_id.label("votes")).join(models.Vote, models.Vote.post_id == models.Post.id, isouter=True).group_by(models.Post.id).all()
+
+
+    
+    #if vote == True:
+        #posts.append(vote)
+    #else:
+       # posts = db.query(models.Post).all()
 
     #results = db.query(models.Post, func.count(models.Vote.post_id.label("votes"))).join(models.Vote, models.Vote.post_id == models.Post.id, isouter=True).group_by(models.Post.id).all()
    
